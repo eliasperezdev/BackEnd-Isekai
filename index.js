@@ -1,28 +1,28 @@
 import express from "express"
-import db from "./database/config.js"
+import db from "./src/database/config.js"
 //import Address from "./models/Address.js";
 //import Category from "./models/Category.js";
 //import Editorial from "./models/Editorial.js";
 //import Favorite from "./models/Favorite.js";
 //import Order from "./models/Order.js";
 //import OrderDetails from "./models/orderDetails.js";
-import Product from "./models/Product.js";
+import Product from "./src/models/Product.js";
 //import Role from "./models/Role.js";
-import User from "./models/User.js";
+import User from "./src/models/User.js";
 //import Ticket from "./models/Ticket.js";
-import "./models/asociations.js"
+import "./src/models/asociations.js"
 import dotenv from 'dotenv'
-import routerEditorial from "./routes/editorial.route.js";
-import routerCategory from "./routes/category.route.js";
-import routerProduct from "./routes/product.route.js";
-import routerUser from "./routes/user.route.js";
-import routerAuth from "./routes/auth.route.js";
+import routerEditorial from "./src/routes/editorial.route.js";
+import routerCategory from "./src/routes/category.route.js";
+import routerProduct from "./src/routes/product.route.js";
+import routerUser from "./src/routes/user.route.js";
+import routerAuth from "./src/routes/auth.route.js";
 import cors from 'cors'
-import routerOrder from "./routes/order.route.js";
-import routerPayment from "./routes/payment.route.js";
-import routerFavorities from "./routes/favorite.route.js";
-import routerAddress from "./routes/address.route.js";
-import { dashboard } from "./controllers/Category.controller.js";
+import routerOrder from "./src/routes/order.route.js";
+import routerPayment from "./src/routes/payment.route.js";
+import routerFavorities from "./src/routes/favorite.route.js";
+import routerAddress from "./src/routes/address.route.js";
+import { dashboard } from "./src/controllers/Category.controller.js";
 
 const app = express()
 app.use(express.json())
