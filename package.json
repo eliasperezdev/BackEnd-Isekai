@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon ./src/app",
-    "ngrok": "ngrok http 4000 -host-header=localhost -authtoken 2OHkCXTsbE9OHkhDKRXIopxIK5u_6UHFqyGizhjV4PdgfX79x"
+    "start": "node /src/app"
   },
   "keywords": [],
   "author": "",
