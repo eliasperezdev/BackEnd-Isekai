@@ -4,7 +4,10 @@ import {
     addProduct,
     editProduct,
     deleteProduct,
-    getRecommend
+    getRecommend,
+    searchProduct,
+    getLatestProducts,
+    getProductsAdmin
 } from '../controllers/Product.controller.js';
 
 import { Router } from 'express';
@@ -15,11 +18,14 @@ const upload = multer({ dest: '../uploads' })
 
 const routerProduct = Router();
 
-routerProduct.get('/', getProducts);
+routerProduct.get('/:editorial/:category/:order/:min/:max', getProducts);
+routerProduct.get('/',validateToken, getProductsAdmin);
+routerProduct.get('/search', searchProduct);
+routerProduct.get('/lastest', getLatestProducts);
 routerProduct.get('/recommend/', getRecommend);
 routerProduct.post('/',upload.single('file'),validateToken, verifyAdmin, addProduct)
 routerProduct.get('/:idProduct', getProduct);
-routerProduct.put('/:idProduct',validateToken, verifyAdmin, editProduct);
+routerProduct.put('/:idProduct',validateToken, editProduct);
 routerProduct.delete('/:idProduct',validateToken, verifyAdmin, deleteProduct);
 
 export default routerProduct;

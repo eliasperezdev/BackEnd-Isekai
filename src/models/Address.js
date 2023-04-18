@@ -22,23 +22,15 @@ const Address = db.define("Address", {
     street: {
         type: sequelize.STRING,
         allowNull: false
-    },    
-    postalCode: {
-        type: sequelize.STRING,
-        allowNull: false
-    },    
+    },
     altitude: {
         type: sequelize.INTEGER,
         allowNull: false
     },    
     department: {
         type: sequelize.STRING,
-        allowNull: false
-    },    
-    department: {
-        type: sequelize.STRING,
-        allowNull: false
-    }
+        allowNull: true
+    },
 });
 
 export default Address;

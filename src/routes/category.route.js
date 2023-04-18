@@ -15,8 +15,7 @@ const upload = multer({ dest: '../uploads' })
 const routerCategory = Router();
 
 routerCategory.get('/', getCategories);
-routerCategory.post('/',upload.single('file'),validateToken, verifyAdmin, addCategory)
+routerCategory.post('/',validateToken, verifyAdmin,upload.single('file'), addCategory)
 routerCategory.put('/:idCategory',validateToken, verifyAdmin, editCategory);
-routerCategory.delete('/:idCategory',validateToken, verifyAdmin, deleteCategory);
 
 export default routerCategory;

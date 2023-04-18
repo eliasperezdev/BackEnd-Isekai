@@ -8,8 +8,11 @@ export default async function verifyAdmin(req, res, next) {
   }
   //TODO obtener rol
   const role = await user.getRole();
-  if (!role || role.name !== 'Vendedor') {
-    return res.status(403).json("Permiso incorrectos");
-  }
-  return next();
+  if ( role.name === 'Administrador' ) {
+    return next()
+  } else if ( role.name === 'Vendedor' ) {
+    return next()
+  } else {
+    return res.status(403).json({ mensaje: 'No tienes permiso para acceder a esta ruta.' });
+  } 
 }

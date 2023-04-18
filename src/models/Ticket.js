@@ -2,7 +2,11 @@ import sequelize from "sequelize";
 import db from "../database/config.js";
 import Category from "./Category.js";
 
-const Order = db.define("Order", {
+const Ticket = db.define("Ticket", {
+	numberTicket: {
+		type: sequelize.STRING,
+		allowNull: false,
+	},   
     dateTime: {
         type: sequelize.DATE,
         allowNull: false
@@ -19,23 +23,7 @@ const Order = db.define("Order", {
     status: {
         type: sequelize.STRING,
         allowNull: false
-    },
-    UserId: {
-        type: sequelize.INTEGER,
-        allowNull: true
-    },
-    AddressId: {
-        type: sequelize.INTEGER,
-        allowNull: true
-    },
-    additionalData: {
-        type: sequelize.STRING,
-        allowNull: true
-    },
-    preferenceId: {
-        type: sequelize.STRING,
-        allowNull: false
     }
 });
 
-export default Order;
+export default Ticket;

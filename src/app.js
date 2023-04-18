@@ -1,14 +1,15 @@
 import express from "express"
 import db from "./database/config.js"
-import Address from "./models/Address.js";
-import Category from "./models/Category.js";
-import Editorial from "./models/Editorial.js";
-import Favorite from "./models/Favorite.js";
-import Order from "./models/Order.js";
-import OrderDetails from "./models/orderDetails.js";
+//import Address from "./models/Address.js";
+//import Category from "./models/Category.js";
+//import Editorial from "./models/Editorial.js";
+//import Favorite from "./models/Favorite.js";
+//import Order from "./models/Order.js";
+//import OrderDetails from "./models/orderDetails.js";
 import Product from "./models/Product.js";
-import Role from "./models/Role.js";
+//import Role from "./models/Role.js";
 import User from "./models/User.js";
+//import Ticket from "./models/Ticket.js";
 import "./models/asociations.js"
 import dotenv from 'dotenv'
 import routerEditorial from "./routes/editorial.route.js";
@@ -18,23 +19,33 @@ import routerUser from "./routes/user.route.js";
 import routerAuth from "./routes/auth.route.js";
 import cors from 'cors'
 import routerOrder from "./routes/order.route.js";
+import routerPayment from "./routes/payment.route.js";
+import routerFavorities from "./routes/favorite.route.js";
+import routerAddress from "./routes/address.route.js";
+import { dashboard } from "./controllers/Category.controller.js";
 
 const app = express()
 app.use(express.json())
 dotenv.config()
 
-const corsOption = {
-    origin: process.env.FRONTEND_URL
-}
-app.use(cors())
+const corsOptions ={
+    origin:'*', 
+    optionSuccessStatus:200,
+ }
+ 
+ app.use(cors(corsOptions))
 
 //routes
 app.use('/api/editorials', routerEditorial);
 app.use('/api/categories', routerCategory);
 app.use('/api/products', routerProduct);
 app.use('/api/users', routerUser);
+app.use('/api/favorities', routerFavorities);
 app.use('/api/login', routerAuth);
 app.use('/api/orders', routerOrder);
+app.use('/api/address', routerAddress);
+app.use('/api/payment', routerPayment);
+app.use('/api/dashboard', dashboard);
 
 const PORT = process.env.PORT || 4000
 

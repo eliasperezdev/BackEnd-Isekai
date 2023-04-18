@@ -13,7 +13,7 @@ const User = db.define("User", {
 	},
     password: {
         type: sequelize.STRING,
-        allowNull: false
+        allowNull: true
     },    
     email: {
         type: sequelize.STRING,
@@ -21,10 +21,14 @@ const User = db.define("User", {
     },    
     phone: {
         type: sequelize.STRING,
-        allowNull: false
+        allowNull: true
     },    
     dni: {
         type: sequelize.INTEGER,
+        allowNull: false
+    },
+    isClient: {
+        type: sequelize.BOOLEAN,
         allowNull: false
     }
 });

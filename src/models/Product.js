@@ -39,6 +39,10 @@ const Product = db.define("Product", {
     urlImage: {
         type: sequelize.STRING,
         allowNull: false
+    },
+    EditorialId :{
+        type: sequelize.INTEGER,
+        allowNull:true
     }
 });
 

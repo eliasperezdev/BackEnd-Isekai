@@ -28,7 +28,6 @@ const login = async (req, res, next) => {
   const authMe = async (req, res, next) => {
     try {
       const me = await User.findByPk(req.userId);
-      console.log(me);
       return res.status(200).json(me);
     } catch (error) {
       return res.status(500).json("No autenticado");
